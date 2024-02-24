@@ -2,32 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .container {
+    @apply flex min-h-screen min-w-full flex-col items-center justify-between p-24 bg-slate-50;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .form-section {
+    @apply absolute inset-0 flex flex-col justify-between gap-10 p-24 bg-gradient-to-br from-slate-50 to-sky-50;
+  }
+  .form {
+    @apply h-full p-4 rounded-xl bg-gradient-to-br from-sky-50 to-sky-100;
+  }
+  .form-step {
+    @apply grid grid-cols-2 justify-center gap-5;
+  }
+  .steps-List {
+    @apply flex gap-5;
+  }
+  .steps-item {
+    @apply flex-1 border border-slate-200/50 hover:bg-sky-50 focus:bg-sky-50 transition-all duration-1000 rounded-lg pb-2;
+  }
+  .step-primary {
+    @apply w-full text-slate-800 font-medium border-t-4 border-teal-400 pt-1 rounded-lg;
+  }
+  .step-secondary {
+    @apply w-full text-slate-800 font-medium pt-2;
+  }
+  .navigate {
+    @apply flex items-center justify-between flex-row-reverse;
+  }
+  .btn-primary {
+    @apply border border-sky-50 p-2 rounded-lg hover:bg-sky-200/20 focus:bg-sky-200/20;
+  }
+  .icon {
+    @apply w-6 h-6;
+  }
+  .textField {
+    @apply col-span-1 flex flex-col gap-2;
+  }
+  .textField-label {
+    @apply text-slate-800 font-medium;
+  }
+  .textInput {
+    @apply text-slate-800 border border-slate-200 rounded-md hover:border-teal-400 focus:border-teal-400 focus:outline-none py-1 px-2;
+  }
+  .textInput-error {
+    @apply border-red-500;
+  }
+  .error {
+    @apply text-red-500;
+  }
+  .regard {
+    @apply text-slate-800 text-3xl font-bold uppercase my-10;
+  }
+  .regard-description {
+    @apply text-slate-800 font-bold;
   }
 }
